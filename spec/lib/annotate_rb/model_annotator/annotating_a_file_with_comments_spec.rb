@@ -1748,8 +1748,8 @@ RSpec.describe "Annotating a file with comments" do
     end
   end
 
-  context "when annotating with position_in_class: after_doc" do
-    let(:options) { AnnotateRb::Options.from({position_in_class: "after_doc"}) }
+  context "when annotating with position_in_class: before_doc" do
+    let(:options) { AnnotateRb::Options.from({position_in_class: "before_doc"}) }
 
     context "with a class doc directly above the class" do
       let(:starting_file_content) do
@@ -1805,7 +1805,7 @@ RSpec.describe "Annotating a file with comments" do
       include_examples "annotates the file"
     end
 
-    context "when re-running on a file already annotated with after_doc" do
+    context "when re-running on a file already annotated with before_doc" do
       let(:schema_info) do
         <<~SCHEMA
           # == Schema Information
@@ -1849,8 +1849,8 @@ RSpec.describe "Annotating a file with comments" do
       include_examples "annotates the file"
     end
 
-    context "when migrating an existing 'before' annotation to 'after_doc' with --force" do
-      let(:options) { AnnotateRb::Options.from({position_in_class: "after_doc", force: true}) }
+    context "when migrating an existing 'before' annotation to 'before_doc' with --force" do
+      let(:options) { AnnotateRb::Options.from({position_in_class: "before_doc", force: true}) }
 
       let(:starting_file_content) do
         <<~FILE

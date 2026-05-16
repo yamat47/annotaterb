@@ -739,8 +739,8 @@ RSpec.describe AnnotateRb::ModelAnnotator::AnnotatedFile::Generator do
       end
     end
 
-    context 'when position is "after_doc"' do
-      let(:options) { AnnotateRb::Options.new({position_in_class: "after_doc"}) }
+    context 'when position is "before_doc"' do
+      let(:options) { AnnotateRb::Options.new({position_in_class: "before_doc"}) }
 
       context "when class has no documentation comment" do
         let(:file_content) do
@@ -920,7 +920,7 @@ RSpec.describe AnnotateRb::ModelAnnotator::AnnotatedFile::Generator do
 
       context "with nested_position and a class doc above the nested class" do
         let(:options) do
-          AnnotateRb::Options.new({position_in_class: "after_doc", nested_position: true})
+          AnnotateRb::Options.new({position_in_class: "before_doc", nested_position: true})
         end
 
         let(:file_content) do

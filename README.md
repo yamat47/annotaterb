@@ -191,10 +191,10 @@ Additional options that work for annotating models and routes
     -f [bare|rdoc|yard|markdown],    Render Schema Information as plain/RDoc/Yard/Markdown
         --format
         --config_path [path]         Path to configuration file (by default, .annotaterb.yml in the root of the project)
-    -p [before|top|after|bottom|after_doc],
-        --position                   Place the annotations at the top (before), bottom (after), or above the class documentation (after_doc) of the model/test/fixture/factory/route/serializer file(s)
-        --pc, --position-in-class [before|top|after|bottom|after_doc]
-                                     Place the annotations at the top (before), bottom (after), or above the class documentation (after_doc) of the model file
+    -p [before|top|after|bottom|before_doc],
+        --position                   Place the annotations at the top (before), bottom (after), or above the class documentation (before_doc) of the model/test/fixture/factory/route/serializer file(s)
+        --pc, --position-in-class [before|top|after|bottom|before_doc]
+                                     Place the annotations at the top (before), bottom (after), or above the class documentation (before_doc) of the model file
         --pf, --position-in-factory [before|top|after|bottom]
                                      Place the annotations at the top (before) or the bottom (after) of any factory files
         --px, --position-in-fixture [before|top|after|bottom]
@@ -241,7 +241,7 @@ For further details visit the [section in the migration guide](MIGRATION_GUIDE.m
 
 By default, when `position_in_class` is `before` (or `top`), AnnotateRb places the schema annotation immediately before the class declaration line. Any human-written documentation comment that was directly above the class is therefore pushed above the annotation.
 
-If you prefer to keep the documentation comment adjacent to the class, set `position_in_class` to `after_doc`. The schema annotation is then inserted above the documentation comment block, leaving the comment directly before the class.
+If you prefer to keep the documentation comment adjacent to the class, set `position_in_class` to `before_doc`. The schema annotation is then inserted above the documentation comment block, leaving the comment directly before the class.
 
 ```ruby
 # Source file:
@@ -256,7 +256,7 @@ end
 class User < ApplicationRecord
 end
 
-# With position_in_class: after_doc
+# With position_in_class: before_doc
 # == Schema Information
 # ...
 # Doc about User
